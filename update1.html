@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Update form</title>
+    <link rel="stylesheet"  type= "text/css" href="updatestyle.css">
+    <script>
+        function validate(){
+            var uid=document.myform.regno.value;
+            var uname = document.getElementById("name");
+            var letters = /^[A-Z a-z]+$/;
+            var numbers = /^[0-9]+$/;
+            var alphanum = /^[0-9a-zA-Z:]+$/;
+            var event = document.getElementById("event");
+            var desc = document.getElementById("desc");
+            var roomno = document.getElementById("roomno");
+            var time = document.getElementById("time");
+            var day = document.getElementById("day");
+            if (uid==null || uid==""){  
+  alert("register number can't be blank");
+  return false;  
+}else if(uid.length<12 || uid.length>12){  
+  alert("register number must be 12 characters long.");  
+  return false;  
+}else if(uname.value==null || uname.value==""){
+    alert("name can't be blank");
+    return false;
+}else if(!uname.value.match(letters)){
+    alert("name should contain only alphabets");
+    return false;
+        }
+        else if(event.value==null || event.value==""){
+    alert("event can't be blank");
+    return false;
+}else if(!event.value.match(letters)){
+    alert("event should contain only alphabets");
+    return false;
+        }
+        else if(desc.value==null || desc.value==""){
+    alert("desc can't be blank");
+    return false;
+}else if(!desc.value.match(letters)){
+    alert("desc should contain only alphabets and cannot exceed 255 characters");
+    return false;
+        }
+        else if(time.value==null || time.value==""){
+    alert("time can't be blank");
+    return false;
+}else if(!time.value.match(alphanum)){
+    alert("time should contain only numbers");
+    return false;
+        }
+        else if(roomno.value==null || roomno.value==""){
+    alert("roomno can't be blank");
+    return false;
+}else if(!roomno.value.match(numbers)){
+    alert("roomno should contain only numbers");
+    return false;
+        }
+        else if(day.value==null || day.value==""){
+    alert("day can't be blank");
+    return false;
+}else if(!day.value.match(letters)){
+    alert("day should contain only alphabets");
+    return false;
+        }
+        }
+</script>
+<body>
+     <div class="signup">
+        <h1>Update form</h1>
+        <form name ="myform" action="insertupdate1.php" method="post"  onsubmit="return validate();">
+        <label>Register number:</label>
+        <input type="number" name="regno" id="regno" placeholder="Enter your register number"><br>
+        <label>Event Category:</label>
+        <input type="text" name="event" id="event" placeholder="Enter your event"><br>
+        <label>Description:</label>
+        <input type="text" name="desc" id="desc" placeholder="Enter your description"><br><br>
+        <label>Room no:</label>
+        <input type="number" name="roomno" id="roomno" placeholder="Enter roomno"><br><br>
+        <label>Time:</label>
+        <input type="time" name="time" id="time" placeholder="Enter time"><br><br>
+        <label>Day:</label>
+        <input type="text" name="day" id="day" placeholder="Enter day"><br><br>
+        <input type="submit" value="update" id="sub"><br>
+        </form>
+    </div>
+</body>
+</head>
+</html>    
+    

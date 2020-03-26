@@ -1,0 +1,133 @@
+﻿<html>
+<script>
+    function validate(){
+        var uid = document.getElementById("regno");
+        var uname = document.getElementById("name");
+        var inputText=document.getElementById("date");
+        var tm=document.getElementById("time");
+        var event=document.getElementById("event");
+        var letters = /^[A-Za-z]+$/;
+        var numbers = /^[0-9]+$/;
+        if(uname.value==null || uname.value==""){
+            alert("name can't be blank");
+            return false;
+        }else if(!uname.value.match(letters)){
+            alert("name should contain only alphabets");
+            return false;
+        }else if (uid.value==null || uid.value==""){  
+            alert("register number can't be blank");  
+            return false;  
+        }else if(uid.value.length<12 || uid.value.length>12){  
+            alert("register number must be 12 characters long.");  
+            return false;  
+        }else if(!event.value.match(letters)){
+            alert("faculty name should contain only alphabets");
+            return false;
+        }
+    }
+</script>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background: url('5.jpg');
+        background-size:cover;
+        background-position: center;
+        font-family: sans-serif;
+    }
+    input[type=text], select, textarea {
+        width: 50%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+    input[type=number]{
+        width: 50%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+    input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left:50%;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+    }
+    .btn {
+        background-color: DodgerBlue; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        padding: 12px 16px; /* Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+    }
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+</style>
+<body style="background-color:papayawhip;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <input type="button" value="Go back!" class="btn" onclick="history.back()">
+    <a href="home.html"><button class="btn"><i class="fa fa-home"></i> Home</button></a>
+    <div class="fedback">
+        <h1 align=center><i>Talent_Quest Feedback</i><h1>
+        <form name="myform" action="insertfeedback.php" method="POST" onsubmit="return validate();">
+            <table border=0 align=center>
+                <tr><td><h3> Name:</h3></td><td><input type="text" name="name" id="name"required></td></tr>
+                <tr><td><h3>Register number:</td><td><input type="number" name="registernumber" id="regno"required></td></tr>
+                <tr><td> <h3>Year:</td><td><select name="year" required>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+                </select></td></tr>
+                <tr><td><h3>Section:</td><td><input type="radio" name="section" value="A" checked> A
+                <input type="radio" name="section" value="B"> B
+                <input type="radio" name="section" value="C"> C</td></tr>
+                <tr><td><h3>Events:</td><td><select name="talent" required>
+                <option value="Singing">Singing</option>
+                <option value="Dancing">Dancing</option>
+                <option value="Instrument">Instrument</option>
+                <option value="Coding">Coding</option>
+                <option value="Other activities">Other activities</option>
+                <tr><td><h3> Date:</h3></td><td><input type="date" name="date" id="date" required></td></tr>
+                <tr><td><h3> Timeslot:</h3></td><td><input type="time" name="time" id="time" required></td></tr>
+                <tr><td><h3> Event's faculty :</h3></td><td><input type="text" name="faculty" id="event" required></td></tr>
+                <tr><td><h3>Feedback:</td><td><textarea name="feedback" required>Write feedback here</textarea></td></tr>
+            </table>
+            <input type="submit" name="submit" value="submit " >
+        </form>
+    </div>
+</body>
+</html>
